@@ -15,7 +15,7 @@ class ImageWindow:
 
         #defining master window
         self.master=master
-        master.geometry("500x500")
+        master.geometry("1000x800")
         master.title("Mythodex")
 
         #defining variables
@@ -24,12 +24,13 @@ class ImageWindow:
         self.current_image=None
         
         #defining widgets for browsing window
-        self.background_image=ImageTk.PhotoImage(file="D:\\ML\\background1.png")
-        self.background_canvas=Canvas(master, height=500, width=500, bg="cornsilk2")
-        self.background_canvas.create_image(250,250,image=self.background_image, anchor=CENTER)
+        self.background_image=ImageTk.PhotoImage(file="D:\\MIL\\background1.png",master=root)
+        self.background_canvas=Canvas(master, height=800, width=1000, bg="cornsilk2")
+        self.background_canvas.create_image(250,300,image=self.background_image, anchor=CENTER)
         self.browse_button=Button(self.background_canvas, text="Browse", activebackground="cornsilk3", bg="cornsilk2", command=self.browsefunc,state=NORMAL)
-        self.location_entry=Entry(self.background_canvas, width=30)
+        self.location_entry=Entry(self.background_canvas, width=70, text="Enter image path here.")
         self.analyse_image_button=Button(self.background_canvas, text="Analyse Image", activebackground="cornsilk3", bg="cornsilk2", command=self.next_buttons, state=NORMAL)
+        #self.welctext=Label(self.background_canvas, fg="")
         
         #placing widgets for resuly window
         self.image_canvas=Canvas(self.background_canvas, height=400, width=500, bg="cornsilk2")
@@ -40,8 +41,8 @@ class ImageWindow:
         
         #placing widgets for 
         self.background_canvas.pack()
-        self.location_entry.place(relx=0.1, rely=0.1)
-        self.browse_button.place(relx=0.5, rely=0.1)
+        self.location_entry.place(relx=0.55, rely=0.2)
+        self.browse_button.place(relx=0.9, rely=0.23)
         self.analyse_image_button.place(relx=0.8, rely=0.9)
     
     def prev_buttons(self):
